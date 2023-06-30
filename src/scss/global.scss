@@ -1,5 +1,30 @@
 @import 'variables';
 
+:root {
+    --color-main-extralight: hsl(#{$color-main-extralight});
+    --color-main-lighter: hsl(#{$color-main-lighter});
+    --color-main-light: hsl(#{$color-main-light});
+    --color-main: hsl(#{$color-main});
+    --color-main-dark: hsl(#{$color-main-dark});
+    --color-main-darken: hsl(#{$color-main-darken});
+    --color-main-extradark: hsl(#{$color-main-extradark});
+    --color-gray-extralight: hsl(#{$color-gray-extralight});
+    --color-gray-lighter: hsl(#{$color-gray-lighter});
+    --color-gray-light: hsl(#{$color-gray-light});
+    --color-gray: hsl(#{$color-gray});
+    --color-gray-dark: hsl(#{$color-gray-dark});
+    --color-gray-darken: hsl(#{$color-gray-darken});
+    --color-gray-extradark: hsl(#{$color-gray-extradark});
+
+
+    /*Implementations*/
+
+    --color-bg-topbar: var(--color-main-lighter);
+    --color-bg-footer: var(--color-gray-lighter);
+    --color-footer: var(--color-main);
+    --color-border: var(--color-main-lighter);
+}
+
 html {
     font-size: 62.5%;
 }
@@ -17,4 +42,11 @@ body {
 
 main {
     flex: 1;
+    padding: 2rem;
+}
+
+.section-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
