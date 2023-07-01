@@ -17,10 +17,16 @@ export const ThemeContext = createContext({
   setTheme: ()=>{},
 })
 
+export const LayoutContext = createContext({
+  layout: 'grid',
+  setLayout: ()=>{},
+})
+
 function Layout() {
 
   // Save context variables for use next
   const [theme, setTheme] = useState(useContext(ThemeContext).theme)
+  const [layout, setLayout] = useState(useContext(LayoutContext).layout)
   const context = useContext(PokedexContext);
 
   const limitSearch = context.limitSearch;
@@ -65,13 +71,15 @@ function Layout() {
       <>
       {/* Use the context by wrapping all components that are going to use it */}
       <ThemeContext.Provider value={{theme, setTheme}}>
-        <PokedexContext.Provider value={{pokeList, actualOffset, setActualOffset, limitSearch, limitPage}}>
-          <div className={`myBody ${theme}`}>
-            <Topbar />
-            <Outlet />
-            <Footer />
-          </div>
-        </PokedexContext.Provider>
+        <LayoutContext.Provider value={{layout, setLayout}}>
+          <PokedexContext.Provider value={{pokeList, actualOffset, setActualOffset, limitSearch, limitPage}}>
+            <div className={`myBody ${theme} ${layout}`}>
+              <Topbar />
+              <Outlet />
+              <Footer />
+            </div>
+          </PokedexContext.Provider>
+        </LayoutContext.Provider>
       </ThemeContext.Provider>
       </>
     )

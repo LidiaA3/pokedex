@@ -46,3 +46,7 @@ Partiendo de una estructura básica, se comienzan a realizar algunos bocetos de 
     Como se puede ver, se guardan los datos en un nuevo array más completo para después pintar los datos que sean necesarios.
 
 + Se ha realizado también la paginación de los resultados utilizando una variable límite que permite cargar el número de datos que se quieran y no el valor por defecto de la API. Para ello se ha utilizado otra variable que controla el offset de los mismos.
+
++ Se ha añadido un botón que cambia el tema de modo claro a oscuro
+
++ Se ha añadido la opción de cambiar la visualización de grid a list

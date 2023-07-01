@@ -27,7 +27,7 @@ function Home() {
 
     return (
       <main className='main'>
-        <section className="section-grid">
+        <section className="section-display">
           { context.pokeList.length === 0
           ?
             // If the array is empty charge a Loading text

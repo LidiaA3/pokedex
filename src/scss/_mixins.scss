@@ -1,0 +1,5 @@
+@mixin mq($bp, $set: min-width) {
+    @media all and ($set: $bp) {
+        @content;
+    }
+}

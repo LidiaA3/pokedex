@@ -1,6 +1,7 @@
 .card {
     position: relative;
     display: flex;
+    flex-direction: var(--flex-direction-child);
     align-items: center;
     gap: 2rem;
     border: .1em solid var(--color-border);
