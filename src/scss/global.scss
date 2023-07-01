@@ -25,7 +25,9 @@
 
 
     /*Implementations*/
+}
 
+.light {
     --color-bg-topbar: var(--color-main-lighter);
     --color-bg-footer: var(--color-gray-lighter);
     --color-footer: var(--color-main);
@@ -38,6 +40,23 @@
     --color-heart: var(--color-special);
     --color-bg-detail: var(--color-gray-lighter);
     --color-bg: white;
+    --box-shadow: #{$box-shadow-light};
+}
+
+.dark {
+    --color-bg-topbar: var(--color-main);
+    --color-bg-footer: var(--color-gray-darken);
+    --color-footer: var(--color-main-extralight);
+    --color-border: var(--color-main);
+    --color-text: var(--color-gray-extralight);
+    --color-text-dark: var(--color-main-extralight);
+    --color-bg-tag: var(--color-gray-light);
+    --color-tag: var(--color-main-darken);
+    --color-elipsis: var(--color-special-60);
+    --color-heart: var(--color-text);
+    --color-bg-detail: var(--color-special);
+    --color-bg: var(--color-gray-extradark);
+    --box-shadow: #{$box-shadow-dark};
 }
 
 html {
@@ -50,10 +69,12 @@ body {
     font-size: 1.5rem;
 }
 
-#root {
+.myBody {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    color: var(--color-text);
+    background-color: var(--color-bg);
 }
 
 .main {

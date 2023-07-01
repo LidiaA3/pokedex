@@ -4,8 +4,16 @@ import Icon from '../icon/Icon';
 
 function Card(props) {
 
+  function goTop() {
+    // Function to scroll to top of the detail page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
     return (
-      <Link to={`/detail/${props.name}`} className='card'>
+      <Link onClick={goTop} to={`/detail/${props.name}`} className='card' id={props.name}>
         <div className="card__img">
           <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.pokeId}.png`} alt={`Pokemon ${props.name}`} />
         </div>

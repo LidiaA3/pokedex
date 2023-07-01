@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import Header from "../../components/topbar/Topbar"
+import Topbar from "../../components/topbar/Topbar"
 import Footer from "../../components/footer/Footer"
 import { createContext, useContext, useEffect, useState } from "react"
 
@@ -12,9 +12,15 @@ export const PokedexContext = createContext({
   limitPage: 0,
 })
 
+export const ThemeContext = createContext({
+  theme: 'light',
+  setTheme: ()=>{},
+})
+
 function Layout() {
 
   // Save context variables for use next
+  const [theme, setTheme] = useState(useContext(ThemeContext).theme)
   const context = useContext(PokedexContext);
 
   const limitSearch = context.limitSearch;
@@ -58,11 +64,15 @@ function Layout() {
     return (
       <>
       {/* Use the context by wrapping all components that are going to use it */}
-      <PokedexContext.Provider value={{pokeList, actualOffset, setActualOffset, limitSearch, limitPage}}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </PokedexContext.Provider>
+      <ThemeContext.Provider value={{theme, setTheme}}>
+        <PokedexContext.Provider value={{pokeList, actualOffset, setActualOffset, limitSearch, limitPage}}>
+          <div className={`myBody ${theme}`}>
+            <Topbar />
+            <Outlet />
+            <Footer />
+          </div>
+        </PokedexContext.Provider>
+      </ThemeContext.Provider>
       </>
     )
   }

@@ -1,6 +1,6 @@
 import './Detail.scss';
 import { useContext } from "react";
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { PokedexContext } from "../layout/Layout";
 import Icon from '../../components/icon/Icon';
 
@@ -16,6 +16,7 @@ function Detail() {
 
     return (
       <main className="detail">
+        <Link to={`/#${pokeName}`} className='detail__goBack'><Icon iconID='arrowBack'/></Link>
         <header className="detail__header">
           <div className="detail__title">
             <h1 className='h2 detail__title__text'>{thisPokemon.name.charAt(0).toUpperCase() + thisPokemon.name.slice(1)}</h1>
