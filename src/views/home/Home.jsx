@@ -26,7 +26,7 @@ function Home() {
   }
 
     return (
-      <>
+      <main className='main'>
         <section className="section-grid">
           { context.pokeList.length === 0
           ?
@@ -34,7 +34,7 @@ function Home() {
             <p>Loading ...</p>
           :
             // When the array is filled, mapping it to paint all pokemon cards
-            context.pokeList.map(pokemon => <Card key={pokemon.name} name={pokemon.name} abilities={pokemon.abilities} pokeId={pokemon.id} />)
+            context.pokeList.map(pokemon => <Card key={pokemon.name} name={pokemon.name} types={pokemon.types} pokeId={pokemon.id} />)
           }
         </section>
         <div className="pagination">
@@ -43,7 +43,7 @@ function Home() {
           <span>{actualOffset / limitSearch + 1}</span>
           <button onClick={goToNextSearch} disabled={actualOffset == limitPage*limitSearch - limitSearch}>Next</button>
         </div>
-      </>
+      </main>
     )
   }
   
