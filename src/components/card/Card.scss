@@ -1,9 +1,65 @@
+@import '../../scss/variables';
+
 .card {
+    position: relative;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     border: .1em solid var(--color-border);
     border-radius: .5em;
     padding: 1rem 2rem;
+    box-shadow: $box-shadow;
     color: inherit;
     text-decoration: none;
+
+    &__img {
+        width: 10rem;
+        height: 10rem;
+        position: relative;
+        
+        &::before {
+            content: '';
+            width: 100%;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: var(--color-elipsis);
+            position: absolute;
+            inset: auto 0 .5rem 0;
+            z-index: -1;
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__title {
+        color: var(--color-text);
+    }
+
+    &__tag {
+        background-color: var(--color-bg-tag);
+        color: var(--color-tag);
+        font-size: 1.2rem;
+        padding: .5rem 1rem;
+        border-radius: .5em;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        &List {
+            display: flex;
+            gap: 1rem;
+        }
+    }
+
+    &__favourite {
+        position: absolute;
+        color: var(--color-heart);
+        top: 1rem;
+        right: 1rem;
+        width: 2rem;
+    }
 }

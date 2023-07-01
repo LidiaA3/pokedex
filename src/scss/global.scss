@@ -1,4 +1,7 @@
+@import 'font-family';
 @import 'variables';
+@import 'typography';
+
 
 :root {
     --color-main-extralight: hsl(#{$color-main-extralight});
@@ -16,6 +19,10 @@
     --color-gray-darken: hsl(#{$color-gray-darken});
     --color-gray-extradark: hsl(#{$color-gray-extradark});
 
+    --color-special: hsl(#{$color-special});
+    --color-special-60: hsla(#{$color-special-60});
+    --color-special-30: hsla(#{$color-special-30});
+
 
     /*Implementations*/
 
@@ -23,6 +30,11 @@
     --color-bg-footer: var(--color-gray-lighter);
     --color-footer: var(--color-main);
     --color-border: var(--color-main-lighter);
+    --color-text: var(--color-main);
+    --color-bg-tag: var(--color-special-60);
+    --color-tag: var(--color-gray-extralight);
+    --color-elipsis: var(--color-special-30);
+    --color-heart: var(--color-special);
 }
 
 html {
@@ -31,6 +43,7 @@ html {
 
 body {
     margin: 0;
+    font-family: $font-family;
     font-size: 1.5rem;
 }
 
