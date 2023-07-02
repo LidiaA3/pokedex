@@ -43,10 +43,12 @@ Partiendo de una estructura básica, se comienzan a realizar algunos bocetos de 
     }, [actualOffset])
     ```
 
-    Como se puede ver, se guardan los datos en un nuevo array más completo para después pintar los datos que sean necesarios.
+    Como se puede ver, se guardan los datos en un nuevo array más completo para después pintar los datos que sean necesarios. Dichos datos son pintados ordenados de menor a mayor por Id. .
 
 + Se ha realizado también la paginación de los resultados utilizando una variable límite que permite cargar el número de datos que se quieran y no el valor por defecto de la API. Para ello se ha utilizado otra variable que controla el offset de los mismos.
 
 + Se ha añadido un botón que cambia el tema de modo claro a oscuro
 
 + Se ha añadido la opción de cambiar la visualización de grid a list
+
++ Se ha añadido la opción de guardar como favoritos algunos pokemons. Se pueden añadir y eliminar de favoritos tanto desde la vista de listado como de la de detalle. Igualmente se pueden ver todos los pokemons guardados como favoritos en una nueva página. 

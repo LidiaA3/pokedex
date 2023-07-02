@@ -31,7 +31,12 @@
 
     &__favourite {
         color: var(--color-heart);
-        width: 4rem;
+        background-color: transparent;
+        border: none;
+
+        & svg {
+            width: 4rem;
+        }
     }
 
     &__contents {

@@ -4,7 +4,7 @@ import Icon from '../icon/Icon';
 
 /**
  * 
- * @param {name | pokeId | types | handleAddFavs} props 
+ * @param {name | pokeId | types | isFav | handleAddRemoveFavs} props 
  * @returns 
  */
 
@@ -31,7 +31,7 @@ function Card(props) {
             {props.types.map(item => <span className='tag' key={item.type.name}>{item.type.name}</span>)}
           </div>
         </div>
-        <button className='card__favourite' onClick={props.handleAddFavs}><Icon iconID='heartEmpty'/></button>
+        <button className='card__favourite' onClick={props.handleAddRemoveFavs}>{props.isFav ? <Icon iconID='heartFill'/> : <Icon iconID='heartEmpty'/>}</button>
       </Link>
     )
   }

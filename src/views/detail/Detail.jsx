@@ -11,7 +11,24 @@ function Detail() {
   const context = useContext(PokedexContext);
   const pokeList = context.pokeList;
 
+  const pokeFavs = context.pokeFavs;
+  const setPokeFavs = context.setPokeFavs;
+
   const thisPokemon = pokeList.find(item => item.name === pokeName);
+
+  function addRemoveFavs(e, pokeName) {    
+    // With preventDefault we prevent the link from acting while adding to favourites
+    e.preventDefault();
+    if(!pokeFavs.includes(pokeName)) {
+        // If the pokemon it's not in the list we add it
+        setPokeFavs([...pokeFavs, pokeName])
+    } else {
+        // If the pokemon is in the list we remove it
+        const indexDeletePoke = pokeFavs.findIndex(item => item === pokeName);
+        pokeFavs.splice(indexDeletePoke, 1);
+        setPokeFavs([...pokeFavs]);
+    }
+  }
 
 
     return (
@@ -20,7 +37,7 @@ function Detail() {
         <header className="detail__header">
           <div className="detail__title">
             <h1 className='h2 detail__title__text'>{thisPokemon.name.charAt(0).toUpperCase() + thisPokemon.name.slice(1)}</h1>
-            <span className='detail__favourite'><Icon iconID='heartEmpty'/></span>
+            <button onClick={(e) => addRemoveFavs(e, thisPokemon.name)} className='detail__favourite'>{pokeFavs.includes(thisPokemon.name) ? <Icon iconID='heartFill'/> : <Icon iconID='heartEmpty'/>}</button>
           </div>
           <p>#{thisPokemon.id.toString().padStart(3, '0')}</p>
           <div className="tagList">

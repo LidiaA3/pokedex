@@ -3,6 +3,7 @@ import { useContext } from "react"
 import { PokedexContext } from "../layout/Layout"
 import Card from "../../components/card/Card";
 
+
 function Home() {
 
   // Import the context and save all variables needed
@@ -26,10 +27,18 @@ function Home() {
     setActualOffset(actualOffset + limitSearch)
   }
 
-  function addFavs(e, pokeName) {
+  function addRemoveFavs(e, pokeName) {    
     // With preventDefault we prevent the link from acting while adding to favourites
     e.preventDefault();
-    setPokeFavs([...pokeFavs, pokeName])
+    if(!pokeFavs.includes(pokeName)) {
+        // If the pokemon it's not in the list we add it
+        setPokeFavs([...pokeFavs, pokeName])
+    } else {
+        // If the pokemon is in the list we remove it
+        const indexDeletePoke = pokeFavs.findIndex(item => item === pokeName);
+        pokeFavs.splice(indexDeletePoke, 1);
+        setPokeFavs([...pokeFavs]);
+    }
   }
 
   console.log(pokeFavs)
@@ -43,7 +52,7 @@ function Home() {
             <p>Loading ...</p>
           :
             // When the array is filled, mapping it to paint all pokemon cards
-            context.pokeList.map(pokemon => <Card key={pokemon.name} name={pokemon.name} types={pokemon.types} pokeId={pokemon.id} handleAddFavs={(e) => addFavs(e, pokemon.name)} />)
+            context.pokeList.map(pokemon => <Card isFav={pokeFavs.includes(pokemon.name)} key={pokemon.name} name={pokemon.name} types={pokemon.types} pokeId={pokemon.id} handleAddRemoveFavs={(e) => addRemoveFavs(e, pokemon.name)} />)
           }
         </section>
         <div className="pagination">
