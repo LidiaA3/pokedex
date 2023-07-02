@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import './Topbar.scss';
 import { useContext } from "react";
 import { LayoutContext, ThemeContext } from "../../views/layout/Layout";
+import Icon from "../icon/Icon";
 
 function Topbar() {
 
@@ -33,8 +34,8 @@ function Topbar() {
 
         <nav className="topbar__actions">
           <Link to='/favourites'>favs</Link>
-          <button onClick={handleTheme}>theme</button>
-          <button onClick={handleLayout}>layout</button>
+          <button className="btnIcon" onClick={handleTheme}><Icon iconID='theme' /></button>
+          <button className="btnIcon" onClick={handleLayout}><Icon iconID='layout' /></button>
         </nav>
       </div>
     )

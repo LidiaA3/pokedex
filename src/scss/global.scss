@@ -1,6 +1,8 @@
 @import 'font-family';
 @import 'variables';
 @import 'typography';
+@import 'buttons';
+@import 'links';
 @import 'mixins';
 
 :root {
@@ -41,6 +43,9 @@
     --color-bg-detail: var(--color-gray-lighter);
     --color-bg: white;
     --box-shadow: #{$box-shadow-light};
+    --color-bg-btn: var(--color-main);
+    --color-border-btn: var(--color-main-dark);
+    --color-btn: var(--color-gray-lighter);
 }
 
 .dark {
@@ -57,6 +62,9 @@
     --color-bg-detail: var(--color-special);
     --color-bg: var(--color-gray-extradark);
     --box-shadow: #{$box-shadow-dark};
+    --color-bg-btn: var(--color-main-lighter);
+    --color-border-btn: var(--color-main-light);
+    --color-btn: var(--color-gray-darken);
 }
 
 .grid {

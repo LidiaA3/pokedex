@@ -13,17 +13,26 @@ function Home() {
   const limitPage = context.limitPage;
   const setActualOffset = context.setActualOffset;
 
+  const pokeFavs = context.pokeFavs;
+  const setPokeFavs = context.setPokeFavs;
+
   function goToPrevSearch() {
     // Function to go to previous page
     setActualOffset(actualOffset - limitSearch)
-    console.log(actualOffset);
   }
 
   function goToNextSearch() {
     // Function to go to next page
     setActualOffset(actualOffset + limitSearch)
-    console.log(actualOffset);
   }
+
+  function addFavs(e, pokeName) {
+    // With preventDefault we prevent the link from acting while adding to favourites
+    e.preventDefault();
+    setPokeFavs([...pokeFavs, pokeName])
+  }
+
+  console.log(pokeFavs)
 
     return (
       <main className='main'>
@@ -34,7 +43,7 @@ function Home() {
             <p>Loading ...</p>
           :
             // When the array is filled, mapping it to paint all pokemon cards
-            context.pokeList.map(pokemon => <Card key={pokemon.name} name={pokemon.name} types={pokemon.types} pokeId={pokemon.id} />)
+            context.pokeList.map(pokemon => <Card key={pokemon.name} name={pokemon.name} types={pokemon.types} pokeId={pokemon.id} handleAddFavs={(e) => addFavs(e, pokemon.name)} />)
           }
         </section>
         <div className="pagination">

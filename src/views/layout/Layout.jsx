@@ -10,6 +10,8 @@ export const PokedexContext = createContext({
   setActualOffset: ()=>{},
   limitSearch: 20,
   limitPage: 0,
+  pokeFavs: [],
+  setPokefavs: ()=>{},
 })
 
 export const ThemeContext = createContext({
@@ -37,6 +39,9 @@ function Layout() {
   // State variable for save all pokemon list when fetch
   const [pokeList, setPokeList] = useState([]);
 
+  // State variable for save the favourites pokemon
+  const [pokeFavs, setPokeFavs] = useState(context.pokeFavs);
+
   // Provisional array to save the pokemon list
   const arr = [];
 
@@ -57,7 +62,7 @@ function Layout() {
                 arr.push(pokeInfo)
               }
               // Return the final array ordened by pokemon Id
-              return arr.sort((a, b) => a - b);
+              return arr.sort((a, b) => a.id - b.id);
             })
             // When the previous array were ready, set the array to state variable
             .then(arr => {
@@ -72,7 +77,7 @@ function Layout() {
       {/* Use the context by wrapping all components that are going to use it */}
       <ThemeContext.Provider value={{theme, setTheme}}>
         <LayoutContext.Provider value={{layout, setLayout}}>
-          <PokedexContext.Provider value={{pokeList, actualOffset, setActualOffset, limitSearch, limitPage}}>
+          <PokedexContext.Provider value={{pokeList, actualOffset, setActualOffset, limitSearch, limitPage, pokeFavs, setPokeFavs}}>
             <div className={`myBody ${theme} ${layout}`}>
               <Topbar />
               <Outlet />

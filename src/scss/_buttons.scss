@@ -1,0 +1,26 @@
+button, .btn {
+    background-color: var(--color-bg-btn);
+    color: var(--color-btn);
+    border: .1em solid var(--color-border-btn);
+    border-radius: .5em;
+    padding: .3em 1em;
+    cursor: pointer;
+
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+}
+
+.btn {
+    &Icon {
+        background-color: transparent;
+        border: none;
+        color: var(--color-text-dark);
+        padding: .2em;
+
+        & svg {
+            width: 3rem;
+        }
+    }
+}

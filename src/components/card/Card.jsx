@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom';
 import './Card.scss';
 import Icon from '../icon/Icon';
 
+/**
+ * 
+ * @param {name | pokeId | types | handleAddFavs} props 
+ * @returns 
+ */
+
 function Card(props) {
 
   function goTop() {
@@ -24,8 +30,8 @@ function Card(props) {
           <div className="tagList">
             {props.types.map(item => <span className='tag' key={item.type.name}>{item.type.name}</span>)}
           </div>
-          <span className='card__favourite'><Icon iconID='heartEmpty'/></span>
         </div>
+        <button className='card__favourite' onClick={props.handleAddFavs}><Icon iconID='heartEmpty'/></button>
       </Link>
     )
   }

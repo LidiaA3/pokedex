@@ -1,4 +1,5 @@
 @import '../../scss/variables';
+@import '../../scss/mixins';
 
 .topbar {
     display: flex;
@@ -9,11 +10,16 @@
     width: calc(100% - 4rem);
 
     &__logo {
-        max-height: 5rem;
+        max-height: 4rem;
+
+        @include mq(360px) {
+            max-height: 5rem;
+        }
     }
 
     &__actions {
         display: flex;
+        align-items: center;
         gap: 1rem;
     }
 }
