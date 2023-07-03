@@ -45,7 +45,11 @@ function Favourites() {
       <main className="main">
         <h1>Favourites pokemons</h1>
         <article className="section-display">
-          {pokeFavsList.map(item => <Card key={item.name} name={item.name} pokeId={item.id} types={item.types} isFav={pokeFavs.includes(item.name)} handleAddRemoveFavs={(e) => addRemoveFavs(e, item.name)} />)}
+          { pokeFavs.length === 0 ?
+            <p>You haven&apos;t add pokemons to favourites</p>
+          :
+            pokeFavsList.map(item => <Card key={item.name} name={item.name} pokeId={item.id} types={item.types} isFav={pokeFavs.includes(item.name)} handleAddRemoveFavs={(e) => addRemoveFavs(e, item.name)} />)
+          }
         </article>
       </main>
     )

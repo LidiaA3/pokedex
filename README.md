@@ -51,4 +51,6 @@ Partiendo de una estructura básica, se comienzan a realizar algunos bocetos de 
 
 + Se ha añadido la opción de cambiar la visualización de grid a list
 
-+ Se ha añadido la opción de guardar como favoritos algunos pokemons. Se pueden añadir y eliminar de favoritos tanto desde la vista de listado como de la de detalle. Igualmente se pueden ver todos los pokemons guardados como favoritos en una nueva página. 
++ Se ha añadido la opción de guardar como favoritos algunos pokemons. Se pueden añadir y eliminar de favoritos tanto desde la vista de listado como de la de detalle. Igualmente se pueden ver todos los pokemons guardados como favoritos en una nueva página.
+
++ Los valores de theme, layout y pokemons favoritos han sido guardados en local para que al refrescarse la página, estos permanezcan inalterables.

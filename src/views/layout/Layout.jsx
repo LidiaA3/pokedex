@@ -26,11 +26,21 @@ export const LayoutContext = createContext({
 
 function Layout() {
 
-  // Save context variables for use next
-  const [theme, setTheme] = useState(useContext(ThemeContext).theme)
-  const [layout, setLayout] = useState(useContext(LayoutContext).layout)
-  const context = useContext(PokedexContext);
+  function getInitialStorage() {
+    // getting stored items
+    const temp = JSON.parse(localStorage.getItem('pokedexLocalContext'));
+    return temp || {};
+  }
 
+  // Save context variables for use next
+  const themeContext = useContext(ThemeContext);
+  const layoutContext = useContext(ThemeContext);
+  const context = useContext(PokedexContext);
+  
+  // Set state values from localStorage or the context
+  const [theme, setTheme] = useState(getInitialStorage().theme || themeContext.theme)
+  const [layout, setLayout] = useState(getInitialStorage().layout || layoutContext.layout)
+  
   const limitSearch = context.limitSearch;
   const [actualOffset, setActualOffset] = useState(context.actualOffset);
 
@@ -40,7 +50,7 @@ function Layout() {
   const [pokeList, setPokeList] = useState([]);
 
   // State variable for save the favourites pokemon
-  const [pokeFavs, setPokeFavs] = useState(context.pokeFavs);
+  const [pokeFavs, setPokeFavs] = useState(getInitialStorage().favs || context.pokeFavs);
 
   // Provisional array to save the pokemon list
   const arr = [];
@@ -71,6 +81,15 @@ function Layout() {
         })
       })
   }, [actualOffset, limitSearch])
+
+  useEffect(()=> {
+    const objFromStorage = {
+      theme: theme,
+      layout: layout,
+      favs: pokeFavs
+    }
+    localStorage.setItem('pokedexLocalContext', JSON.stringify(objFromStorage))
+  }, [theme, layout, pokeFavs])
 
     return (
       <>
