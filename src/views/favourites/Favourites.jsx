@@ -43,7 +43,7 @@ function Favourites() {
 
     return (
       <main className="main">
-        <h1>Favourites pokemons</h1>
+        <h1>Favourite pokemons</h1>
         <article className="section-display">
           { pokeFavs.length === 0 ?
             <p>You haven&apos;t add pokemons to favourites</p>

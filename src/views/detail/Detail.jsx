@@ -1,5 +1,5 @@
 import './Detail.scss';
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
 import { PokedexContext } from "../layout/Layout";
 import Icon from '../../components/icon/Icon';
@@ -9,12 +9,19 @@ function Detail() {
   const pokeName = useParams().pokeName;
 
   const context = useContext(PokedexContext);
-  const pokeList = context.pokeList;
 
   const pokeFavs = context.pokeFavs;
   const setPokeFavs = context.setPokeFavs;
 
-  const thisPokemon = pokeList.find(item => item.name === pokeName);
+  const [thisPokemon, setThisPokemon] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+      .then(res => res.json())
+      .then(data => setThisPokemon(data))
+  }, [pokeName])
+
+  console.log(thisPokemon)
 
   function addRemoveFavs(e, pokeName) {    
     // With preventDefault we prevent the link from acting while adding to favourites
@@ -28,6 +35,10 @@ function Detail() {
         pokeFavs.splice(indexDeletePoke, 1);
         setPokeFavs([...pokeFavs]);
     }
+  }
+
+  if (thisPokemon.length === 0) {
+    return <p>Loading...</p>
   }
 
 

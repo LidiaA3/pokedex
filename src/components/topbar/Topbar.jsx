@@ -33,7 +33,7 @@ function Topbar() {
         <Link to='/'><img src="/pokeapi_logo.png" alt="Logo pokeapi" className="topbar__logo" /></Link>
 
         <nav className="topbar__actions">
-          <Link to='/favourites'>favs</Link>
+          <Link className="btnIcon" to='/favourites'><Icon iconID='heartFill' /></Link>
           <button className="btnIcon" onClick={handleTheme}><Icon iconID='theme' /></button>
           <button className="btnIcon" onClick={handleLayout}><Icon iconID='layout' /></button>
         </nav>
