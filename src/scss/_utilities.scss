@@ -1,0 +1,9 @@
+@each $key, $value in $color-list {
+    .color-#{$key} {
+        color: hsl($value);
+    }
+    
+    .color-bg-#{$key} {
+        background-color: hsl($value);
+    }
+}

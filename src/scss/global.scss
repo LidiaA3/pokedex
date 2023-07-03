@@ -1,9 +1,10 @@
 @import 'font-family';
 @import 'variables';
+@import 'mixins';
+@import 'functions';
 @import 'typography';
 @import 'buttons';
 @import 'links';
-@import 'mixins';
 
 :root {
     --color-main-extralight: hsl(#{$color-main-extralight});
@@ -84,7 +85,7 @@ html {
 body {
     margin: 0;
     font-family: $font-family;
-    font-size: 1.5rem;
+    font-size: fs(medium);
 }
 
 .myBody {
@@ -125,7 +126,7 @@ body {
 .tag {
     background-color: var(--color-bg-tag);
     color: var(--color-tag);
-    font-size: 1.2rem;
+    font-size: fs(small);
     padding: .5rem 1rem;
     border-radius: .5em;
     display: flex;

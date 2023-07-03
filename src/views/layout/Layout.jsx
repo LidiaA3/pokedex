@@ -78,7 +78,9 @@ function Layout() {
             .then(arr => {
               setPokeList([...arr]);
             })
+            .catch(console.log('Something went wrong'))
         })
+        .catch(console.log('Something fail'))
       })
   }, [actualOffset, limitSearch])
 

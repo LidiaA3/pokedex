@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react"
 import { PokedexContext } from "../layout/Layout"
 import Card from "../../components/card/Card";
+import ErrorPage from "../errorpage/ErrorPage";
+import Loading from "../../components/loading/Loading";
 
 function Favourites() {
 
@@ -9,6 +11,8 @@ function Favourites() {
   const setPokeFavs = context.setPokeFavs;
 
   const [pokeFavsList, setPokeFavsList] = useState([]);
+
+  const [errorFetch, setErrorFetch] = useState(false);
 
   const arr = [];
 
@@ -24,6 +28,7 @@ function Favourites() {
           return arr
         })
         .then(arrayInfo => setPokeFavsList([...arrayInfo]))
+        .catch(() => setErrorFetch(true))
     })
   }, [pokeFavs])
 
@@ -39,6 +44,14 @@ function Favourites() {
         pokeFavs.splice(indexDeletePoke, 1);
         setPokeFavs([...pokeFavs]);
     }
+  }
+
+  if(pokeFavsList.length === 0) {
+    return <Loading />
+  }
+
+  if(errorFetch) {
+    return <ErrorPage />
   }
 
     return (

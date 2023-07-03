@@ -2,6 +2,7 @@ import './Home.scss'
 import { useContext } from "react"
 import { PokedexContext } from "../layout/Layout"
 import Card from "../../components/card/Card";
+import Loading from '../../components/loading/Loading';
 
 
 function Home() {
@@ -41,19 +42,14 @@ function Home() {
     }
   }
 
-  console.log(pokeFavs)
+  if(context.pokeList.length === 0) {
+    return <Loading />
+  }
 
     return (
       <main className='main'>
         <section className="section-display">
-          { context.pokeList.length === 0
-          ?
-            // If the array is empty charge a Loading text
-            <p>Loading ...</p>
-          :
-            // When the array is filled, mapping it to paint all pokemon cards
-            context.pokeList.map(pokemon => <Card isFav={pokeFavs.includes(pokemon.name)} key={pokemon.name} name={pokemon.name} types={pokemon.types} pokeId={pokemon.id} handleAddRemoveFavs={(e) => addRemoveFavs(e, pokemon.name)} />)
-          }
+          {context.pokeList.map(pokemon => <Card isFav={pokeFavs.includes(pokemon.name)} key={pokemon.name} name={pokemon.name} types={pokemon.types} pokeId={pokemon.id} handleAddRemoveFavs={(e) => addRemoveFavs(e, pokemon.name)} />)}
         </section>
         <div className="pagination">
           {/* Pagination zone with two buttons and the actual page */}

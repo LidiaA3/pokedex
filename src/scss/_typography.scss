@@ -9,27 +9,27 @@ h6, .h6 {
 }
 
 h1, .h1 {
-    font-size: 5rem;
+    font-size: fs(huge);
 }
 
 h2, .h2 {
-    font-size: 4rem;
+    font-size: fs(x-big);
 }
 
 h3, .h3 {
-    font-size: 3rem;
+    font-size: fs(big);
 }
 
 h4, .h4 {
-    font-size: 2rem;
+    font-size: fs(large);
 }
 
 h5, .h5 {
-    font-size: 2rem;
+    font-size: fs(large);
 }
 
 h6, .h6 {
-    font-size: 2rem;
+    font-size: fs(large);
 }
 
 p {
@@ -41,5 +41,5 @@ p {
 }
 
 small {
-    font-size: 1.5rem;
+    font-size: fs(small);
 }

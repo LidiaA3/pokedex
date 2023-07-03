@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
 import { PokedexContext } from "../layout/Layout";
 import Icon from '../../components/icon/Icon';
+import ErrorPage from '../errorpage/ErrorPage';
+import Loading from '../../components/loading/Loading';
 
 function Detail() {
 
@@ -13,12 +15,15 @@ function Detail() {
   const pokeFavs = context.pokeFavs;
   const setPokeFavs = context.setPokeFavs;
 
+  const [errorFetch, setErrorFetch] = useState(false);
+
   const [thisPokemon, setThisPokemon] = useState([]);
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
       .then(res => res.json())
       .then(data => setThisPokemon(data))
+      .catch(() => setErrorFetch(true));
   }, [pokeName])
 
   console.log(thisPokemon)
@@ -37,10 +42,13 @@ function Detail() {
     }
   }
 
-  if (thisPokemon.length === 0) {
-    return <p>Loading...</p>
+  if (errorFetch) {
+    return <ErrorPage />
   }
 
+  if (thisPokemon.length === 0) {
+    return <Loading />
+  }
 
     return (
       <main className="detail">

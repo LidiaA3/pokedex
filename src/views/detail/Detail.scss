@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+@import '../../scss/functions';
 @import '../../scss/mixins';
 
 .detail {
@@ -76,7 +78,7 @@
     }
 
     &__info {
-        font-size: 2rem;
+        font-size: fs(large);
         color: var(--color-text-dark);
         max-width: 60rem;
 
@@ -116,10 +118,10 @@
         min-height: 9rem;
         padding: 1rem;
         box-sizing: border-box;
-        font-size: 3rem;
+        font-size: fs(big);
 
         & small {
-            font-size: 1.2rem;
+            font-size: fs(small);
         }
     }
 

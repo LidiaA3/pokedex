@@ -22,3 +22,30 @@ $box-shadow-light: 0px 0px 10px 0px hsl($color-gray-lighter);
 $box-shadow-dark: 0px 0px 10px 0px hsl($color-gray-darken);
 
 $font-family: 'IstokWeb';
+
+$font_sizes: (
+    "small": 1.2,
+    "medium": 1.5,
+    "large": 2,
+    "big": 3,
+    "x-big": 4,
+    "huge": 5
+);
+
+$color-list: (
+    'color-main-extralight': $color-main-extralight,
+    'color-main-lighter': $color-main-lighter,
+    'color-main-light': $color-main-light,
+    'color-main': $color-main,
+    'color-main-dark': $color-main-dark,
+    'color-main-darken': $color-main-darken,
+    'color-main-extradark': $color-main-extradark,
+    'color-gray-extralight': $color-gray-extralight,
+    'color-gray-lighter': $color-gray-lighter,
+    'color-gray-light': $color-gray-light,
+    'color-gray': $color-gray,
+    'color-gray-dark': $color-gray-dark,
+    'color-gray-darken': $color-gray-darken,
+    'color-gray-extradark': $color-gray-extradark,
+    'color-special': $color-special
+);
