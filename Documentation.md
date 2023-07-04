@@ -104,3 +104,11 @@ Mediante el la siguiente petición ```https://pokeapi.co/api/v2/pokemon?offset=$
 ## Testing
 
 Se han creado tests para comprobar que las páginas de vistas se renderizan de forma correcta y que los valores preestablecidos se guardan correctamente en el alojamiento local. Sin haber creado nunca ningún test, he querido incluir alguna prueba para comenzar a introducirme en esta materia. Para craer estos tests se han necesitado las librerías [testing-library](https://testing-library.com/docs/), [vitest](https://vitest.dev/guide/) y [jsdom](https://www.npmjs.com/package/jsdom). Se trata de tests muy sencillo que dan como resultado el conocimiento de que las diferentes vistas se renderizan de forma correcta y que los datos que se pretenden guardar el el alojamiento local, lo hacen sin errores.
+
+## Resultado final
+
+Tras todo el proceso, el resultado obtenido es un proyecto completo y coherente, fácil de utilizar y muy funcional:
+
+![mockup de la pokedex](./docsImgs/mockup_pokedex.webp)
+
+[Demo del proyecto en netlify](https://lidiaa3pokedex.netlify.app/)
