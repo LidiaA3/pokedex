@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react"
 import { PokedexContext } from "../layout/Layout"
 import Card from "../../components/card/Card";
-import ErrorPage from "../errorpage/ErrorPage";
 import Loading from "../../components/loading/Loading";
+import { Link } from "react-router-dom";
+import Error from "../../components/error/Error";
 
 function Favourites() {
 
@@ -28,7 +29,10 @@ function Favourites() {
           return arr
         })
         .then(arrayInfo => setPokeFavsList([...arrayInfo]))
-        .catch(() => setErrorFetch(true))
+        .catch(err => {
+          console.log(`Pokemon doesn't exist: ${err}`)
+          setErrorFetch(true);
+        })
     })
   }, [pokeFavs])
 
@@ -45,7 +49,10 @@ function Favourites() {
   }
 
   if (pokeFavs.length === 0) {
-    return <p>You haven&apos;t add pokemons to favourites</p>
+    return <main className="main">
+      <p>You haven&apos;t add pokemons to favourites</p>
+      <Link to='/'>Go home to add pokemon to favourites</Link>
+    </main>
   }
 
   if(pokeFavsList.length === 0) {
@@ -53,14 +60,14 @@ function Favourites() {
   }
 
   if(errorFetch) {
-    return <ErrorPage />
+    return <Error />
   }
 
     return (
       <main className="main">
         <h1>Favourite pokemons</h1>
         <article className="section-display">
-          {pokeFavsList.map(item => <Card key={item.name} name={item.name} pokeId={item.id} types={item.types} isFav={pokeFavs.includes(item.name)} handleAddRemoveFavs={addRemoveFavs(item.name)} />)}
+          {pokeFavsList.map(item => <Card key={item.name} name={item.name} pokeId={item.id} types={item.types} isFav={pokeFavs.includes(item.name)} handleAddRemoveFavs={() => addRemoveFavs(item.name)} />)}
         </article>
       </main>
     )

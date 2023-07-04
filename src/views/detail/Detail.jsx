@@ -3,9 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
 import { PokedexContext } from "../layout/Layout";
 import Icon from '../../components/icon/Icon';
-import ErrorPage from '../errorpage/ErrorPage';
 import Loading from '../../components/loading/Loading';
 import Button from '../../components/button/Button';
+import Error from '../../components/error/Error';
 
 function Detail() {
 
@@ -41,7 +41,7 @@ function Detail() {
   }
 
   if (errorFetch) {
-    return <ErrorPage />
+    return <Error />
   }
 
   if (thisPokemon.length === 0) {

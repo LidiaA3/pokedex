@@ -1,0 +1,13 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+
+    &__ball {
+        width: 10rem;
+        height: 10rem;
+    }
+}
