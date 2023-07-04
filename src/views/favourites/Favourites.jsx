@@ -32,9 +32,7 @@ function Favourites() {
     })
   }, [pokeFavs])
 
-  function addRemoveFavs(e, pokeName) {    
-    // With preventDefault we prevent the link from acting while adding to favourites
-    e.preventDefault();
+  function addRemoveFavs(pokeName) {    
     if(!pokeFavs.includes(pokeName)) {
         // If the pokemon it's not in the list we add it
         setPokeFavs([...pokeFavs, pokeName])
@@ -44,6 +42,10 @@ function Favourites() {
         pokeFavs.splice(indexDeletePoke, 1);
         setPokeFavs([...pokeFavs]);
     }
+  }
+
+  if (pokeFavs.length === 0) {
+    return <p>You haven&apos;t add pokemons to favourites</p>
   }
 
   if(pokeFavsList.length === 0) {
@@ -58,11 +60,7 @@ function Favourites() {
       <main className="main">
         <h1>Favourite pokemons</h1>
         <article className="section-display">
-          { pokeFavs.length === 0 ?
-            <p>You haven&apos;t add pokemons to favourites</p>
-          :
-            pokeFavsList.map(item => <Card key={item.name} name={item.name} pokeId={item.id} types={item.types} isFav={pokeFavs.includes(item.name)} handleAddRemoveFavs={(e) => addRemoveFavs(e, item.name)} />)
-          }
+          {pokeFavsList.map(item => <Card key={item.name} name={item.name} pokeId={item.id} types={item.types} isFav={pokeFavs.includes(item.name)} handleAddRemoveFavs={addRemoveFavs(item.name)} />)}
         </article>
       </main>
     )
