@@ -46,7 +46,7 @@ En base a los resultados previos, se comienzan a realizar algunos bocetos de dis
 
 + Creación de un contexto para alojar los datos de la API y otra información general relevante. [Web de referencia](https://react.dev/reference/react/createContext). Se ha creado un contexto que permite conectar algunas variables entre los diferentes archivos para que toda la aplicación sea coherente y consistente.
 
-+ Anidación de promesas al hacer la petición a la API para guardar los datos de los diferentes pokemons. Mediante esta anidación, se consigue solicitar un listado de pokemons a la APi correspondiente y mediante un bucle, extraer más información sobre cada uno de los pokemons. Se puede ver el fragmento de código a continuación:
++ Anidación de promesas al hacer la petición a la API para guardar los datos de los diferentes pokemons. Mediante esta anidación, se consigue solicitar un listado de pokemons a la API correspondiente y mediante un bucle, extraer más información sobre cada uno de los pokemons. Se puede ver el fragmento de código a continuación:
 
     ```
     useEffect(() => {
@@ -87,16 +87,16 @@ En base a los resultados previos, se comienzan a realizar algunos bocetos de dis
 
 ## APIs
 
-Para crear esta app, se ha hecho uso de la api de [PokeAPI](https://pokeapi.co/docs/v2). Esta api devuelve un listado de veinte pokemons. De cada uno de ellos tan solo se devuelve su nombre y una url en la que se encuentra más información sobre el mismo. Con esta información, se hace uso de la petición anidada que se explicaba anteriormente para extraer en un solo array todos los datos importantes sobre cada pokemon. Además, utilizando la siguiente petición: ```https://pokeapi.co/api/v2/pokemon${nombre del mismo}```, se puede acceder a los datos de un pokemon en concreto y extraer la información pertinente.
+Para crear esta app, se ha hecho uso de la api de [PokeAPI](https://pokeapi.co/docs/v2). Esta api devuelve un listado de veinte pokemons por defecto aunque se puede controlar el valor mediante algunas variables. De cada uno de ellos tan solo se devuelve su nombre y una url en la que se encuentra más información sobre el mismo. Con esta información, se hace uso de la petición anidada que se explicaba anteriormente para extraer en un solo array todos los datos importantes sobre cada pokemon. Además, utilizando la siguiente petición: ```https://pokeapi.co/api/v2/pokemon${nombre del mismo}```, se puede acceder a los datos de un pokemon en concreto y extraer la información pertinente.
 
-Mediante la siguiente petición ```https://pokeapi.co/api/v2/pokemon?offset=${actualOffset}&limit=${limitSearch}``` se puede acceder a un número de pokemons distinto a los veinte primeros. Esto facilita la paginación y hace que la web sea más rápida. 
+Mediante la siguiente petición ```https://pokeapi.co/api/v2/pokemon?offset=${actualOffset}&limit=${limitSearch}``` se puede acceder a un número de pokemons distinto a los primeros establecidos. Esto facilita la paginación y hace que la web sea más rápida. 
 
 ## Estructura de información
 
 + ```src```: Incluye todos los archivos creados para la app y se estructuran de la siguiente manera:
     + ```components```: Incluye, organizados por carpetas, todos los componentes que se han creado. Cada uno de ellos dispone de su propio archivo de estilos y su propia lógica.
 
-    + ```scss```: Incluye todos los estilos globales de la app, todos oganizados por carpetas que se importan en el archivo ```global.scss```.
+    + ```scss```: Incluye todos los estilos globales de la app, todos oganizados por archivos que se importan en el archivo ```global.scss```.
 
     + ```views```: Incluye las vistas de la todas las páginas. Layout corresponde a la vista general que incluye los componentes de Topbar y Footer. El resto de vistas son las correspondientes a cada página y que se cargan dentro de la vista Layout.
 
