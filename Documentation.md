@@ -21,17 +21,17 @@ Se solicita la creación de una app que cargue una extensa lista de pokemons, qu
 
 Partiendo de la estructura básica de páginas que se quiere utilizar y de algunas webs de documentación sobre pokemons, se comienza a estudiar y analizar la propia API de pokemon para extraer la estructura de toda la información que se va a solicitar:
 
-![Documentación propia de la API](https://pokeapi.co/docs/v2)
-![Web de documentación de pokemons](https://pokemon.fandom.com/es/wiki)
-![Web oficial de pokedex de pokemon](https://pokemon.com/es/pokedex)
++ [Documentación propia de la API](https://pokeapi.co/docs/v2)
++ [Web de documentación de pokemons](https://pokemon.fandom.com/es/wiki)
++ [Web oficial de pokedex de pokemon](https://pokemon.com/es/pokedex)
 
 Partiendo de los resultados previos, se comienzan a realizar algunos bocetos de diseño para organizar toda la información obtenida:
 
-[card view light](./docsImgs/card-light.png)
-[card view dark](./docsImgs/card-dark.png)
+<img src='./docsImgs/card-light.png' alt='card view light' width='50px' />
+<img src='./docsImgs/card-dark.png' alt='card view dark' width='50px' />
 
-[detail view light](./docsImgs/detail-light.png)
-[detail view dark](./docsImgs/detail-dark.png)
+<img src='./docsImgs/detail-light.png' alt='detail view light' width='100px' />
+<img src='./docsImgs/detail-dark.png' alt='detail view dark' width='100px' />
 
 
 ## Programando la pokedex
