@@ -107,8 +107,8 @@ Se han creado tests para comprobar que las páginas de vistas se renderizan de f
 
 ## Resultado final
 
-Tras todo el proceso, el resultado obtenido es un proyecto completo y coherente, fácil de utilizar y muy funcional:
+Tras todo el proceso, el resultado obtenido es un proyecto completo y coherente, fácil de utilizar y muy funcional.
+
+Se puede ver una [demo del proyecto en netlify](https://lidiaa3pokedex.netlify.app/).
 
 ![mockup de la pokedex](./docsImgs/mockup_pokedex.webp)
-
-[Demo del proyecto en netlify](https://lidiaa3pokedex.netlify.app/)
