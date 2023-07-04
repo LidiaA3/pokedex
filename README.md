@@ -2,7 +2,7 @@
 
 Pokemon App where you can find relevant information about all the pokemon that live in the Sinnoh region.
 
-![mockup result of the pokedex app](/mockup_pokedex.webp)
+![mockup result of the pokedex app](./docsImgs/mockup_pokedex.webp)
 
 [Whatch the demo of this project](https://lidiaa3pokedex.netlify.app/)
 
@@ -155,7 +155,7 @@ You can then type the following command to run the tests of this project:
 
 ## Deployment
 
-For deploy the project on a server, just run the following command and push the dist file to server
+For deploy the project on a server, just run the following command and push the dist file to server:
 
 ```jsx
     npm run build
