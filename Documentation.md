@@ -83,6 +83,8 @@ Partiendo de los resultados previos, se comienzan a realizar algunos bocetos de 
 
 + Se ha creado un componente de Loading para indicar que los datos se están cargando. Es común que al ejecutar acciones, el estado de la pantalla tarde unos segundos en cargar el contenido final por lo que mediante este componente, el usuario estará continuamente informado de lo que está ocurriendo en pantalla.
 
++ De la misma forma, pueden ocurrir errores durante la carga de los datos. Para evitar que el usuario se pierda o abandone al web, se han creado un componente y una página de error que son mostrados por pantalla cuando las peticiones presentan alguna irregularidad.
+
 ## APIs
 
 Para crear esta app, se ha hecho uso de la api de [PokeAPI](https://pokeapi.co/docs/v2). Esta api devuelve un listado de veinte pokemons. De cada uno de ellos tan solo se devuelve su nombre y una url en la que se encuentra más información sobre el mismo. Con esta información, se hace uso de la petición anidada que se explicaba anteriormente para extraer en un solo array todos los datos importantes sobre cada pokemon. Además, utilizando la siguiente petición: ```https://pokeapi.co/api/v2/pokemon${nombre del mismo}```, se puede acceder a los datos de un pokemon en concreto y extraer la información pertinente.
@@ -104,6 +106,8 @@ Mediante el la siguiente petición ```https://pokeapi.co/api/v2/pokemon?offset=$
 ## Testing
 
 Se han creado tests para comprobar que las páginas de vistas se renderizan de forma correcta y que los valores preestablecidos se guardan correctamente en el alojamiento local. Sin haber creado nunca ningún test, he querido incluir alguna prueba para comenzar a introducirme en esta materia. Para craer estos tests se han necesitado las librerías [testing-library](https://testing-library.com/docs/), [vitest](https://vitest.dev/guide/) y [jsdom](https://www.npmjs.com/package/jsdom). Se trata de tests muy sencillo que dan como resultado el conocimiento de que las diferentes vistas se renderizan de forma correcta y que los datos que se pretenden guardar el el alojamiento local, lo hacen sin errores.
+
+Por otro lado, se ha subido el proyecto a [netlify](https://www.netlify.com/) para asegurar que no existan errores durante el deploy. Netlify pasa sus propios tests antes de subir el contenido final y en caso de que encuentre alguna irregularidad, informa al respecto. En este caso, todos los tests del servidor han funcionado correctamente.
 
 ## Resultado final
 
