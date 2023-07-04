@@ -28,12 +28,14 @@ Partiendo de la estructura básica de páginas que se quiere utilizar y de algun
 Partiendo de los resultados previos, se comienzan a realizar algunos bocetos de diseño para organizar toda la información obtenida:
 
 <div style='display: flex'>
-    <img src='./docsImgs/card-light.png' alt='card view light' width='100px' />
-    <img src='./docsImgs/card-dark.png' alt='card view dark' width='100px' />
+    <img src='./docsImgs/card-light.png' alt='card view light' width='200px' />
+    <img src='./docsImgs/card-dark.png' alt='card view dark' width='200px' />
 </div>
 
-<img src='./docsImgs/detail-light.png' alt='detail view light' width='100px' />
-<img src='./docsImgs/detail-dark.png' alt='detail view dark' width='100px' />
+<div style='display: flex'>
+    <img src='./docsImgs/detail-light.png' alt='detail view light' width='200px' />
+    <img src='./docsImgs/detail-dark.png' alt='detail view dark' width='200px' />
+</div>
 
 
 ## Programando la pokedex
@@ -83,12 +85,22 @@ Partiendo de los resultados previos, se comienzan a realizar algunos bocetos de 
 
 ## APIs
 
-Para crear esta app, se ha hecho uso de la api de [PokeAPI](https://pokeapi.co/docs/v2). Esta api devuelve un listado de 20 pokemons. De cada uno de ellos tan solo se devuelve su nombre y una url en la que se encuentra más información sobre el mismo. Con esta información, se hace uso de la petición anidada que se explicaba anteriormente para extraer en un solo array todos los datos importantes sobre cada pokemon. Además, utilizando la siguiente petición: ```https://pokeapi.co/api/v2/pokemon${nombre del mismo}```, se puede acceder a los datos de un pokemon en concreto y extraer la información pertinente.
+Para crear esta app, se ha hecho uso de la api de [PokeAPI](https://pokeapi.co/docs/v2). Esta api devuelve un listado de veinte pokemons. De cada uno de ellos tan solo se devuelve su nombre y una url en la que se encuentra más información sobre el mismo. Con esta información, se hace uso de la petición anidada que se explicaba anteriormente para extraer en un solo array todos los datos importantes sobre cada pokemon. Además, utilizando la siguiente petición: ```https://pokeapi.co/api/v2/pokemon${nombre del mismo}```, se puede acceder a los datos de un pokemon en concreto y extraer la información pertinente.
+
+Mediante el la siguiente petición ```https://pokeapi.co/api/v2/pokemon?offset=${actualOffset}&limit=${limitSearch}``` se puede acceder a un de pokemos distinto a los veinte primeros. Esto facilita la paginación y hace que la web sea más rápida. 
 
 ## Estructura de información
 
++ ```src```: Incluye todos los archivos creados para la app y se estructuran de la siguiente manera:
+    + ```components```: Incluye, organizados por carpetas, todos los componentes que se han creado. Cada uno de ellos dispone de su propio archivo de estilos y su propia lógica. Se pueden visualizar todos ellos en el storybook del proyecto.
+
+    + ```scss```: Incluye todos los estilos globales de la app, todos oganizados por carpetas que se importan en el archivo ```global.scss```.
+
+    + ```views```: Incluye las vistas de la todas las páginas. Layout corresponde a la vista general que incluye los componentes de Topbar y Footer. El resto de vistas son las correspondientes a cada página y que se cargan dentro de la vista Layout.
+
++ ```tets```: En esta carpeta se incluyen todos los archivos de testing y sus configuraciones.
 
 
 ## Testing
 
-Se han creado tests para comprobar que las páginas de vistas se renderizan de forma correcta y que los valores preestablecidos se guardan correctamente en el alojamiento local. Sin haber creado nunca ningún test, he querido incluir alguna prueba para comenzar a introducirme en esta materia. Para craer estos tests se han necesitado las librerías testing-library, vitest y jsdom. Se trata de tests muy sencillo que dan como resultado el conocimiento de que las diferentes vistas se renderizan de forma correcta y que los datos que se pretenden guardar el el alojamiento local, lo hacen sin errores.
+Se han creado tests para comprobar que las páginas de vistas se renderizan de forma correcta y que los valores preestablecidos se guardan correctamente en el alojamiento local. Sin haber creado nunca ningún test, he querido incluir alguna prueba para comenzar a introducirme en esta materia. Para craer estos tests se han necesitado las librerías [testing-library](https://testing-library.com/docs/), [vitest](https://vitest.dev/guide/) y [jsdom](https://www.npmjs.com/package/jsdom). Se trata de tests muy sencillo que dan como resultado el conocimiento de que las diferentes vistas se renderizan de forma correcta y que los datos que se pretenden guardar el el alojamiento local, lo hacen sin errores.
