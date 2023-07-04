@@ -27,8 +27,10 @@ Partiendo de la estructura básica de páginas que se quiere utilizar y de algun
 
 Partiendo de los resultados previos, se comienzan a realizar algunos bocetos de diseño para organizar toda la información obtenida:
 
-<img src='./docsImgs/card-light.png' alt='card view light' width='50px' />
-<img src='./docsImgs/card-dark.png' alt='card view dark' width='50px' />
+<div style='display: flex'>
+    <img src='./docsImgs/card-light.png' alt='card view light' width='100px' />
+    <img src='./docsImgs/card-dark.png' alt='card view dark' width='100px' />
+</div>
 
 <img src='./docsImgs/detail-light.png' alt='detail view light' width='100px' />
 <img src='./docsImgs/detail-dark.png' alt='detail view dark' width='100px' />
