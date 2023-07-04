@@ -94,7 +94,7 @@ Mediante el la siguiente petición ```https://pokeapi.co/api/v2/pokemon?offset=$
 ## Estructura de información
 
 + ```src```: Incluye todos los archivos creados para la app y se estructuran de la siguiente manera:
-    + ```components```: Incluye, organizados por carpetas, todos los componentes que se han creado. Cada uno de ellos dispone de su propio archivo de estilos y su propia lógica. Se pueden visualizar todos ellos en el storybook del proyecto.
+    + ```components```: Incluye, organizados por carpetas, todos los componentes que se han creado. Cada uno de ellos dispone de su propio archivo de estilos y su propia lógica.
 
     + ```scss```: Incluye todos los estilos globales de la app, todos oganizados por carpetas que se importan en el archivo ```global.scss```.
 
