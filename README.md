@@ -54,3 +54,7 @@ Partiendo de una estructura básica, se comienzan a realizar algunos bocetos de 
 + Se ha añadido la opción de guardar como favoritos algunos pokemons. Se pueden añadir y eliminar de favoritos tanto desde la vista de listado como de la de detalle. Igualmente se pueden ver todos los pokemons guardados como favoritos en una nueva página.
 
 + Los valores de theme, layout y pokemons favoritos han sido guardados en local para que al refrescarse la página, estos permanezcan inalterables.
+
++ Se ha creado un componente de Loading para indicar que los datos se están cargando.
+
++  Se han creado tests para comprobar que las páginas de vistas se renderizan de forma correcta y que los valores preestablecidos se guardan correctamente en el alojamiento local. Para estos tests se han necesitado testing-library, vitest y jsdom.
