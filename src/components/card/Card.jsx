@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import './Card.scss';
-import Icon from '../icon/Icon';
 import Button from '../button/Button';
 
 /**

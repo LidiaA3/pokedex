@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 import './Topbar.scss';
 import { useContext } from "react";
 import { LayoutContext, ThemeContext } from "../../views/layout/Layout";
-import Icon from "../icon/Icon";
 import Button from "../button/Button";
 
 function Topbar() {
