@@ -3,6 +3,7 @@ import './Topbar.scss';
 import { useContext } from "react";
 import { LayoutContext, ThemeContext } from "../../views/layout/Layout";
 import Icon from "../icon/Icon";
+import Button from "../button/Button";
 
 function Topbar() {
 
@@ -33,9 +34,9 @@ function Topbar() {
         <Link to='/'><img src="/pokeapi_logo.png" alt="Logo pokeapi" className="topbar__logo" /></Link>
 
         <nav className="topbar__actions">
-          <Link className="btnIcon" to='/favourites'><Icon iconID='heartFill' /></Link>
-          <button className="btnIcon" onClick={handleTheme}><Icon iconID='theme' /></button>
-          <button className="btnIcon" onClick={handleLayout}><Icon iconID='layout' /></button>
+          <Button isLink={true} justIcon={true} goTo='/favourites' icon='heartFill' />
+          <Button justIcon={true} handleClick={handleTheme} icon='theme' />
+          <Button justIcon={true} handleClick={handleLayout} icon='layout' />
         </nav>
       </div>
     )

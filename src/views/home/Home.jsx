@@ -3,6 +3,7 @@ import { useContext } from "react"
 import { PokedexContext } from "../layout/Layout"
 import Card from "../../components/card/Card";
 import Loading from '../../components/loading/Loading';
+import Button from '../../components/button/Button';
 
 
 function Home() {
@@ -28,9 +29,7 @@ function Home() {
     setActualOffset(actualOffset + limitSearch)
   }
 
-  function addRemoveFavs(e, pokeName) {    
-    // With preventDefault we prevent the link from acting while adding to favourites
-    e.preventDefault();
+  function addRemoveFavs(pokeName) {    
     if(!pokeFavs.includes(pokeName)) {
         // If the pokemon it's not in the list we add it
         setPokeFavs([...pokeFavs, pokeName])
@@ -49,13 +48,13 @@ function Home() {
     return (
       <main className='main'>
         <section className="section-display">
-          {context.pokeList.map(pokemon => <Card isFav={pokeFavs.includes(pokemon.name)} key={pokemon.name} name={pokemon.name} types={pokemon.types} pokeId={pokemon.id} handleAddRemoveFavs={(e) => addRemoveFavs(e, pokemon.name)} />)}
+          {context.pokeList.map(pokemon => <Card isFav={pokeFavs.includes(pokemon.name)} key={pokemon.name} name={pokemon.name} types={pokemon.types} pokeId={pokemon.id} handleAddRemoveFavs={() => addRemoveFavs(pokemon.name)} />)}
         </section>
         <div className="pagination">
           {/* Pagination zone with two buttons and the actual page */}
-          <button onClick={goToPrevSearch} disabled={actualOffset == 0}>Prev</button>
+          <Button goTop={true} handleClick={goToPrevSearch} isDisabled={actualOffset == 0} text='Prev' />
           <span>{actualOffset / limitSearch + 1}</span>
-          <button onClick={goToNextSearch} disabled={actualOffset == limitPage*limitSearch - limitSearch}>Next</button>
+          <Button goTop={true} handleClick={goToNextSearch} isDisabled={actualOffset == limitPage*limitSearch - limitSearch} text='Next' />
         </div>
       </main>
     )

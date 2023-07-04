@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Card.scss';
 import Icon from '../icon/Icon';
+import Button from '../button/Button';
 
 /**
  * 
@@ -31,7 +32,7 @@ function Card(props) {
             {props.types.map(item => <span className='tag' key={item.type.name}>{item.type.name}</span>)}
           </div>
         </div>
-        <button className='card__favourite' onClick={props.handleAddRemoveFavs}>{props.isFav ? <Icon iconID='heartFill'/> : <Icon iconID='heartEmpty'/>}</button>
+        <Button extraClass='card__favourite' preventDefault={true} handleClick={() => props.handleAddRemoveFavs(props.name)} icon={props.isFav ? 'heartFill' : 'heartEmpty'} />
       </Link>
     )
   }

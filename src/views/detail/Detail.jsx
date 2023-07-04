@@ -5,6 +5,7 @@ import { PokedexContext } from "../layout/Layout";
 import Icon from '../../components/icon/Icon';
 import ErrorPage from '../errorpage/ErrorPage';
 import Loading from '../../components/loading/Loading';
+import Button from '../../components/button/Button';
 
 function Detail() {
 
@@ -26,11 +27,8 @@ function Detail() {
       .catch(() => setErrorFetch(true));
   }, [pokeName])
 
-  console.log(thisPokemon)
 
   function addRemoveFavs(e, pokeName) {    
-    // With preventDefault we prevent the link from acting while adding to favourites
-    e.preventDefault();
     if(!pokeFavs.includes(pokeName)) {
         // If the pokemon it's not in the list we add it
         setPokeFavs([...pokeFavs, pokeName])
@@ -52,11 +50,11 @@ function Detail() {
 
     return (
       <main className="detail">
-        <Link to={`/#${pokeName}`} className='detail__goBack'><Icon iconID='arrowBack'/></Link>
+        <Link to='/' className='detail__goBack'><Icon iconID='arrowBack'/></Link>
         <header className="detail__header">
           <div className="detail__title">
             <h1 className='h2 detail__title__text'>{thisPokemon.name.charAt(0).toUpperCase() + thisPokemon.name.slice(1)}</h1>
-            <button onClick={(e) => addRemoveFavs(e, thisPokemon.name)} className='detail__favourite'>{pokeFavs.includes(thisPokemon.name) ? <Icon iconID='heartFill'/> : <Icon iconID='heartEmpty'/>}</button>
+            <Button handleClick={(e) => addRemoveFavs(e, thisPokemon.name)} extraClass='detail__favourite' icon={pokeFavs.includes(thisPokemon.name) ? 'heartFill' : 'heartEmpty'} />
           </div>
           <p>#{thisPokemon.id.toString().padStart(3, '0')}</p>
           <div className="tagList">

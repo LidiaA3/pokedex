@@ -78,10 +78,10 @@ function Layout() {
             .then(arr => {
               setPokeList([...arr]);
             })
-            .catch(console.log('Something went wrong'))
+            .catch(err => console.log(`Something went wrong: ${err}`))
         })
-        .catch(console.log('Something fail'))
       })
+      .catch(err => console.log(`Something fail: ${err}`))
   }, [actualOffset, limitSearch])
 
   useEffect(()=> {
