@@ -179,6 +179,12 @@ In addition, hooks, context API and other react resources have been used.
 
 ---
 
+## Documentation
+
+All the details and the reasoning behind all the decisions that have been made to carry out this project are documented in the [Documentation.md](./Documentation.md) file.
+
+---
+
 ## Author
 
 Made with ❤️ by [LidiaA3](https://github.com/LidiaA3)
