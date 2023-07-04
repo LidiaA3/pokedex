@@ -26,7 +26,7 @@ Pokemon App where you can find relevant information about all the pokemon that l
 
 + Loading component to alert the user that the page is processing the data for diplay.
 
-+ Error component and error page to alert teh user that something went wrong.
++ Error component and error page to alert the user that something went wrong.
 
 + Creation of tests to check that the view pages are rendered correctly and that the preset values are saved correctly on the local storage.
 
